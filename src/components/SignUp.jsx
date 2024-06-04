@@ -1,59 +1,35 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import myImage from "../assets/img.jpeg";
+import './signup.css'; // Assuming you have a CSS file for custom styles
 
 const SignUp = () => {
-    const onFinish = (values) => {
-      console.log("Success:", values);
-    };
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
 
-    const onFinishFailed = (errorInfo) => {
-      console.log("Failed:", errorInfo);
-    };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
-    <div className="container flex">
-      <div>
+    <div className="container flex sign-up-container">
+      <div className="image-container">
         <img src={myImage} alt="myImage" />
       </div>
-      <div className="mt-40">
-        <h1 className="font-bold px-8">Sign Up</h1>
-        <h3 className="flex">
-          or <span className="text-green-700">sign In</span>
-        </h3>
-      </div>
-      <div className="flex justify-center items-center">
-        {/* <form action="" className="mt-2">
-          <Input
-            placeholder="email"
-            type="email"
-            className="flex px-20 rounded-xl mt-2"
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            className="flex px-20 rounded-xl mt-2"
-          />
-          <Input
-            placeholder="confirm password"
-            type="confirm password"
-            className="flex px-20 rounded-xl mt-2"
-          />
-          <Button type="submit" className="bg-green-500 rounded-full w-full mt-20">
-            Sign Up
-          </Button>
-        </form> */}
-
+      <div className="form-container">
+        <div className="form-header">
+          <h1 className="font-bold">Sign Up</h1>
+          <h3>
+            or <span className="text-green-700">sign In</span>
+          </h3>
+        </div>
         <Form
           name="basic"
-        //   labelCol={{
-        //     span: 8,
-        //   }}
-        //   wrapperCol={{
-        //     span: 70,
-        //   }}
           style={{
-            maxWidth: 900,
+            maxWidth: 400,
             padding: 20,
             borderRadius: 10,
+            backgroundColor: '#f9f9f9'
           }}
           initialValues={{
             remember: true,
@@ -63,7 +39,6 @@ const SignUp = () => {
           autoComplete="off"
         >
           <Form.Item
-            //   label="email"
             name="email"
             rules={[
               {
@@ -72,11 +47,10 @@ const SignUp = () => {
               },
             ]}
           >
-            <Input placeholder="email" />
+            <Input placeholder="Email" />
           </Form.Item>
 
           <Form.Item
-            //   label="Password"
             name="password"
             rules={[
               {
@@ -85,11 +59,10 @@ const SignUp = () => {
               },
             ]}
           >
-            <Input.Password placeholder="password" />
+            <Input.Password placeholder="Password" />
           </Form.Item>
 
           <Form.Item
-            //   label="confirm password"
             name="ConfirmPassword"
             rules={[
               {
@@ -98,32 +71,23 @@ const SignUp = () => {
               },
             ]}
           >
-            <Input.Password placeholder="Re- Enter Password" />
+            <Input.Password placeholder="Re-Enter Password" />
           </Form.Item>
 
           <Form.Item
             name="remember"
             valuePropName="checked"
-            //   wrapperCol={{
-            //     offset: 8,
-            //     span: 16,
-            //   }}
           >
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
-          <Form.Item
-          //   wrapperCol={{
-          //     offset: 8,
-          //     span: 16,
-          //   }}
-          >
+          <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
               className="w-full bg-green-500 rounded-full"
             >
-              Login
+              Sign Up
             </Button>
           </Form.Item>
         </Form>
